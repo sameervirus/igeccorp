@@ -1,0 +1,70 @@
+/*!
+Theme Name: igeccorp
+Theme URI: http://underscores.me/
+Author: Samir Nabil
+Author URI: http://www.raindesigner.com
+Description: Integrated Group for Electromechanical Contracting (IGEC) Is a leading engineering and technology company that specializes in the \"Turn-key\" execution of industrial plants and supply of technological packages for both domestic and international projects.
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: igeccorp
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+igeccorp is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#site-navigation .search-form {
+  right: 0;
+  padding: 0;
+  transition: all 0.4s ease-in-out;
+  z-index: 9999;
+  order: 4;
+  transform: translateX(100%);
+  width: 100%;
+  padding-left: 3em;
+  padding-top: 0.75em;
+}
+
+@media (min-width: 1101px) {
+  #site-navigation .search-form {
+    order: 1;
+    position: relative;
+    top: auto;
+    right: auto;
+    display: block;
+    width: auto;
+    max-width: none;
+    pointer-events: all;
+    padding-right: 1em;
+    padding-left: 0;
+    padding-top: 0;
+    transform: translateX(0);
+  }
+}
+
+#site-navigation .search-form label {
+  width: 100%;
+}
+
+@media (min-width: 1101px) {
+  #site-navigation .search-form label {
+    width: auto;
+  }
+}
+
+#site-navigation .search-form label input[type="search"] {
+  width: 100%;
+}
