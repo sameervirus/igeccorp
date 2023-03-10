@@ -145,6 +145,7 @@ function igeccorp_scripts() {
 	wp_enqueue_style( 'igeccorp-custon',  get_template_directory_uri() . '/css/custom.css', array(), _S_VERSION );
 	wp_style_add_data( 'igeccorp-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'igeccorp-jquery', get_template_directory_uri() . '/js/jquery-3.6.3.min.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'igeccorp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -153,6 +154,141 @@ function igeccorp_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'igeccorp_scripts' );
 
+/**
+ * Samir Changes in theme core
+ */
+add_post_type_support( 'page', 'excerpt' );
+
+
+function igeccorp_social($wp_customize){
+
+    $wp_customize->add_section('igeccorp_social_handle', array(
+        'title'    => __('Site Information', 'igeccorp'),
+        'description' => 'i.e., Acme Company\'s Facebook is https://facebook.com/acmecompany then enter "acmecompany"',
+        'priority' => 20,
+    ));
+
+
+	// =============================
+	// Email
+	// =============================
+	$wp_customize->add_setting('igeccorp_email_op', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+
+    ));
+
+    $wp_customize->add_control('igeccorp_email', array(
+        'label'      => __('Email', 'igeccorp'),
+        'section'    => 'igeccorp_social_handle',
+        'settings'   => 'igeccorp_email_op',
+    ));
+
+	// =============================
+	// Phone
+	// =============================
+	$wp_customize->add_setting('igeccorp_phone_op', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+
+    ));
+
+    $wp_customize->add_control('igeccorp_phone', array(
+        'label'      => __('Phone', 'igeccorp'),
+        'section'    => 'igeccorp_social_handle',
+        'settings'   => 'igeccorp_phone_op',
+    ));
+
+	// =============================
+	// Address
+	// =============================
+	$wp_customize->add_setting('igeccorp_address_op', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+
+    ));
+
+    $wp_customize->add_control('igeccorp_address', array(
+        'label'      => __('Address', 'igeccorp'),
+        'section'    => 'igeccorp_social_handle',
+        'settings'   => 'igeccorp_address_op',
+    ));
+
+    //  =============================
+    //  = Facebook                  =
+    //  =============================
+    $wp_customize->add_setting('igeccorp_fb_op', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+
+    ));
+
+    $wp_customize->add_control('igeccorp_fb', array(
+        'label'      => __('Facebook Handle', 'igeccorp'),
+        'section'    => 'igeccorp_social_handle',
+        'settings'   => 'igeccorp_fb_op',
+    ));
+
+    //  =============================
+    //  = Twitter                  =
+    //  =============================
+    $wp_customize->add_setting('igeccorp_tw_op', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+
+    ));
+
+    $wp_customize->add_control('igeccorp_tw', array(
+        'label'      => __('Twitter Handle', 'igeccorp'),
+        'section'    => 'igeccorp_social_handle',
+        'settings'   => 'igeccorp_tw_op',
+    ));
+
+	//  =============================
+    //  = LinkedIN                  =
+    //  =============================
+    $wp_customize->add_setting('igeccorp_in_op', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+
+    ));
+
+    $wp_customize->add_control('igeccorp_in', array(
+        'label'      => __('LinkedIn Handle', 'igeccorp'),
+        'section'    => 'igeccorp_social_handle',
+        'settings'   => 'igeccorp_in_op',
+    ));
+
+}
+
+//add
+add_action( 'customize_register', 'igeccorp_social' );
+
+// Our custom post type function
+function igeccorp_create_posttype() {
+  
+    register_post_type( 'jobs',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Jobs' ),
+                'singular_name' => __( 'Job' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'job'),
+            'show_in_rest' => true,
+        )
+    );
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'igeccorp_create_posttype' );
 /**
  * Implement the Custom Header feature.
  */
@@ -179,4 +315,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

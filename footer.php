@@ -63,17 +63,17 @@
 			<div class="site-footer-company">
 				<p><strong>Powering the transition to a carbon-free future</strong></p>
 				<a class="btn alt arrow" href="/contact/">Start your project</a>
-				<p class="phone">Call <a href="tel:+44(0)1454318000">+44 (0) 1454 318000</a></p>
-				<p class="email">Email <a href="mailto:enquiries@igeccorp.com">enquiries@igeccorp.com</a></p>
+				<p class="phone">Call <a href="<?php echo get_theme_mod('igeccorp_phone_op'); ?>"><?php echo get_theme_mod('igeccorp_phone_op'); ?></a></p>
+				<p class="email">Email <a href="mailto:<?php echo get_theme_mod('igeccorp_email_op'); ?>"><?php echo get_theme_mod('igeccorp_email_op'); ?></a></p>
 			</div>
 		</div><!-- .contain -->
 		<div class="site-footer-extra">
 			<div class="contain">
-				<p>© 2023 Igeccorp</p>
+				<p>© 2023 <?php echo get_bloginfo( 'name' ); ?></p>
 				<ul class="social">
-					<li><a class="twitter" href="#" target="_blank">Twitter</a></li>
-					<li><a class="instagram" href="#" target="_blank">Instagram</a></li>
-					<li><a class="linkedIn" href="#" target="_blank">LinkedIn</a></li>
+					<li><a class="twitter" href="<?php echo get_theme_mod('igeccorp_tw_op'); ?>" target="_blank">Twitter</a></li>
+					<li><a class="facebook" href="<?php echo get_theme_mod('igeccorp_fb_op'); ?>" target="_blank">Facebook</a></li>
+					<li><a class="linkedIn" href="<?php echo get_theme_mod('igeccorp_in_op'); ?>" target="_blank">LinkedIn</a></li>
 				</ul>
 			</div>
 		</div>

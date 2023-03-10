@@ -8,7 +8,8 @@
  *
  * @package igeccorp
  */
-
+global $post;
+	$head_class = is_front_page() ? 'home' : '';
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -22,11 +23,21 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<header class="<?php echo is_front_page() ? 'home' : ''; ?>">
+<div id="page" class="<?php 
+						echo @$args['pageIdClass']; 
+						echo $args['serviceaIdClass']; 
+						echo $args['homeIdClass']; 
+						echo $args['prjectIdClass']; 
+						echo $args['archiveIdClass']; ?>">
+	<header class="<?php 
+						echo $head_class; 
+						echo @$args['headerClass']; 
+						echo @$args['pageClass']; 
+						echo @$args['projectClass']; 
+						echo @$args['archiveIdClass']; ?>">
 		<div class="top-header">
 			<div class="contain">
-				<a href="tel:+44(0)1454318000">+44 (0) 1454 318000</a>
+				<a href="tel:<?php echo get_theme_mod('igeccorp_phone_op'); ?>"><?php echo get_theme_mod('igeccorp_phone_op'); ?></a>
 			</div>
 		</div>
 		<div class="contain nav-contain">
@@ -52,6 +63,52 @@
 				<a href="/contact" class="btn alt nav-contact">Contact Us</a>
 			</nav>
 		</div>
+		<?php if(@$args['serviceaIdClass']) : ?>
+			<div class="contain">
+				<div class="services-header-intro">
+					<div>
+						<span><?php the_title(); ?></span>
+						<h1 class="h3"><?php echo get_post_meta($post->ID, 'sub_title', true); ?></h1>
+						<?php the_excerpt(); ?>
+					</div>
+					<div>
+						<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php if(@$args['projectIdClass']) : ?>
+			<div class="contain">
+				<div class="services-header-intro">
+					<div>
+						<span><?php echo get_post_meta($post->ID, 'sub_title', true); ?></span>
+						<h1 class="h3"><?php the_title(); ?></h1>
+						<?php the_excerpt(); ?>
+					</div>
+					<div>
+						<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php if(@$args['archiveIdClass']) : ?>
+			<div class="contain">
+				<div class="archive-centered-header-intro">
+					<div>
+						<h1><?php the_title(); ?></h1>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php if(@$args['pageClass']) : ?>
+			<div class="contain">
+				<div class="general-content-centered-header-intro">
+					<div>
+						<h1><?php the_title(); ?></h1>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
 		<div id="mega-menu-holder">
 			<div class="contain">
 			<?php

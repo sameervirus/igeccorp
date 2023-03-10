@@ -358,12 +358,14 @@ header
 #site-navigation .menu-toggle:before,
 .main-navigation
   div[class*="-menu-container"]
-  > div
-  > ul
-  > li.menu-item-has-children
-  > a:after,
+ >div
+ >ul
+ >li.menu-item-has-children
+ >a:after,
 .post-pagination ul li.prev a:before,
+.post-pagination ul li a.prev:before,
 .post-pagination ul li.next a:before,
+.post-pagination ul li a.next:before,
 .site-footer-company p.phone:before,
 .site-footer-company p.email:before,
 .site-footer-extra ul.social li a:before,
@@ -645,7 +647,7 @@ body #page {
   flex: 1 1 100%;
 }
 
-body #page > * {
+body #page>* {
   flex: 0 0 auto;
 }
 
@@ -673,8 +675,8 @@ ol {
   list-style: decimal;
 }
 
-li > ul,
-li > ol {
+li>ul,
+li>ol {
   margin-bottom: 0;
   margin-left: 1.5em;
 }
@@ -1216,29 +1218,29 @@ figure.align-center {
   }
 }
 
-.main-navigation div[class*="-menu-container"] > div {
+.main-navigation div[class*="-menu-container"]>div {
   overflow: auto;
   max-height: calc(100vh - 140px);
 }
 
 @media (min-width: 1101px) {
-  .main-navigation div[class*="-menu-container"] > div {
+  .main-navigation div[class*="-menu-container"]>div {
     overflow: hidden;
   }
 }
 
-.main-navigation div[class*="-menu-container"] > div > ul {
+.main-navigation div[class*="-menu-container"]>div>ul {
   padding: 0 1em;
 }
 
 @media (min-width: 1025px) {
-  .main-navigation div[class*="-menu-container"] > div > ul {
+  .main-navigation div[class*="-menu-container"]>div>ul {
     padding: 0 1.5em;
   }
 }
 
 @media (min-width: 1101px) {
-  .main-navigation div[class*="-menu-container"] > div > ul {
+  .main-navigation div[class*="-menu-container"]>div>ul {
     display: flex;
     margin-top: 0;
   }
@@ -1246,30 +1248,30 @@ figure.align-center {
 
 .main-navigation
   div[class*="-menu-container"]
-  > div
-  > ul
-  > li.menu-item-has-children
-  > a {
+ >div
+ >ul
+ >li.menu-item-has-children
+ >a {
   position: relative;
 }
 
 @media (min-width: 1101px) {
   .main-navigation
     div[class*="-menu-container"]
-    > div
-    > ul
-    > li.menu-item-has-children
-    > a {
+   >div
+   >ul
+   >li.menu-item-has-children
+   >a {
     padding-right: 2.75em;
   }
 }
 
 .main-navigation
   div[class*="-menu-container"]
-  > div
-  > ul
-  > li.menu-item-has-children
-  > a:after {
+ >div
+ >ul
+ >li.menu-item-has-children
+ >a:after {
   content: "\e90b";
   position: absolute;
   right: 0;
@@ -1281,10 +1283,10 @@ figure.align-center {
 @media (min-width: 1101px) {
   .main-navigation
     div[class*="-menu-container"]
-    > div
-    > ul
-    > li.menu-item-has-children
-    > a:after {
+   >div
+   >ul
+   >li.menu-item-has-children
+   >a:after {
     right: 0.75rem;
     content: "\e901";
   }
@@ -1292,20 +1294,20 @@ figure.align-center {
 
 .main-navigation
   div[class*="-menu-container"]
-  > div
-  > ul
-  > li.menu-item-has-children.active
-  > a:after {
+ >div
+ >ul
+ >li.menu-item-has-children.active
+ >a:after {
   transform: translateY(-50%) rotate(45deg);
 }
 
 @media (min-width: 1101px) {
   .main-navigation
     div[class*="-menu-container"]
-    > div
-    > ul
-    > li.menu-item-has-children.active
-    > a:after {
+   >div
+   >ul
+   >li.menu-item-has-children.active
+   >a:after {
     content: "\e90b";
     transform: translateY(-50%) rotate(45deg);
   }
@@ -1313,31 +1315,31 @@ figure.align-center {
 
 .main-navigation
   div[class*="-menu-container"]
-  > div
-  > ul
-  > li:not(:last-child)
-  > a {
+ >div
+ >ul
+ >li:not(:last-child)
+ >a {
   border-bottom: 1px solid #b1b5c7;
 }
 
 @media (min-width: 1101px) {
   .main-navigation
     div[class*="-menu-container"]
-    > div
-    > ul
-    > li:not(:last-child)
-    > a {
+   >div
+   >ul
+   >li:not(:last-child)
+   >a {
     border: none;
   }
 }
 
 @media (min-width: 1101px) {
-  .main-navigation div[class*="-menu-container"] > div > ul > li ul {
+  .main-navigation div[class*="-menu-container"]>div>ul>li ul {
     display: none !important;
   }
 }
 
-.main-navigation div[class*="-menu-container"] > div ul {
+.main-navigation div[class*="-menu-container"]>div ul {
   margin-left: 0 !important;
 }
 
@@ -1447,17 +1449,17 @@ figure.align-center {
   overflow: hidden;
 }
 
-#page > header {
+#page>header {
   position: relative;
 }
 
-#page > header > .nav-contain {
+#page>header>.nav-contain {
   height: 90px;
   align-items: flex-start;
 }
 
 @media (min-width: 1101px) {
-  #page > header > .nav-contain {
+  #page>header>.nav-contain {
     height: auto;
   }
 }
@@ -1475,9 +1477,9 @@ figure.align-center {
   width: 100%;
 }
 
-#mega-menu-holder .contain > ul,
-#mega-menu-holder .home-news .news-scroll-wrapper .scroll-wrapper-inner > ul,
-.home-news .news-scroll-wrapper #mega-menu-holder .scroll-wrapper-inner > ul {
+#mega-menu-holder .contain>ul,
+#mega-menu-holder .home-news .news-scroll-wrapper .scroll-wrapper-inner>ul,
+.home-news .news-scroll-wrapper #mega-menu-holder .scroll-wrapper-inner>ul {
   position: relative;
   width: 100%;
   margin: 0;
@@ -1485,65 +1487,65 @@ figure.align-center {
   list-style: none;
 }
 
-#mega-menu-holder .contain > ul > li,
+#mega-menu-holder .contain>ul>li,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li,
+ >ul
+ >li,
 .home-news
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li {
+ >ul
+ >li {
   display: none;
   padding: 2em;
   background: #fff;
 }
 
 @media (min-width: 1101px) {
-  #mega-menu-holder .contain > ul > li.active,
+  #mega-menu-holder .contain>ul>li.active,
   #mega-menu-holder
     .home-news
     .news-scroll-wrapper
     .scroll-wrapper-inner
-    > ul
-    > li.active,
+   >ul
+   >li.active,
   .home-news
     .news-scroll-wrapper
     #mega-menu-holder
     .scroll-wrapper-inner
-    > ul
-    > li.active {
+   >ul
+   >li.active {
     display: block;
   }
 }
 
-#mega-menu-holder .contain > ul > li h4,
+#mega-menu-holder .contain>ul>li h4,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   h4,
 .home-news
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   h4,
-#mega-menu-holder .contain > ul > li .contact-split-right-form .gform_title,
-.contact-split-right-form #mega-menu-holder .contain > ul > li .gform_title,
+#mega-menu-holder .contain>ul>li .contact-split-right-form .gform_title,
+.contact-split-right-form #mega-menu-holder .contain>ul>li .gform_title,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   .contact-split-right-form
   .gform_title,
 .contact-split-right-form
@@ -1551,15 +1553,15 @@ figure.align-center {
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   .gform_title,
 .home-news
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   .contact-split-right-form
   .gform_title,
 .contact-split-right-form
@@ -1567,17 +1569,17 @@ figure.align-center {
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   .gform_title,
-#mega-menu-holder .contain > ul > li .contact-split-right-notice .gform_title,
-.contact-split-right-notice #mega-menu-holder .contain > ul > li .gform_title,
+#mega-menu-holder .contain>ul>li .contact-split-right-notice .gform_title,
+.contact-split-right-notice #mega-menu-holder .contain>ul>li .gform_title,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   .contact-split-right-notice
   .gform_title,
 .contact-split-right-notice
@@ -1585,15 +1587,15 @@ figure.align-center {
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   .gform_title,
 .home-news
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   .contact-split-right-notice
   .gform_title,
 .contact-split-right-notice
@@ -1601,8 +1603,8 @@ figure.align-center {
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   .gform_title {
   margin-top: 0;
   border-bottom: 1px solid #b1b5c7;
@@ -1610,32 +1612,32 @@ figure.align-center {
   margin-bottom: 1.75rem;
 }
 
-#mega-menu-holder .contain > ul > li.small-menu,
+#mega-menu-holder .contain>ul>li.small-menu,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li.small-menu,
+ >ul
+ >li.small-menu,
 .home-news
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li.small-menu {
+ >ul
+ >li.small-menu {
   position: relative;
   width: 50%;
   left: 50%;
   transform: translateX(-50%);
 }
 
-#mega-menu-holder .contain > ul > li ul li.sub-page a,
+#mega-menu-holder .contain>ul>li ul li.sub-page a,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   ul
   li.sub-page
   a,
@@ -1643,8 +1645,8 @@ figure.align-center {
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   ul
   li.sub-page
   a {
@@ -1652,13 +1654,13 @@ figure.align-center {
   margin-left: 0.5em;
 }
 
-#mega-menu-holder .contain > ul > li ul li.sub-page a:before,
+#mega-menu-holder .contain>ul>li ul li.sub-page a:before,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   ul
   li.sub-page
   a:before,
@@ -1666,8 +1668,8 @@ figure.align-center {
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
-  > ul
-  > li
+ >ul
+ >li
   ul
   li.sub-page
   a:before {
@@ -1763,22 +1765,22 @@ main.general-content:not(.split)
   max-width: 850px;
 }
 
-main.general-content.split > .contain,
+main.general-content.split>.contain,
 .home-news
   .news-scroll-wrapper
   main.general-content.split
-  > .scroll-wrapper-inner {
+ >.scroll-wrapper-inner {
   display: grid;
   grid-template-columns: 100%;
   grid-row-gap: 2rem;
 }
 
 @media (min-width: 769px) {
-  main.general-content.split > .contain,
+  main.general-content.split>.contain,
   .home-news
     .news-scroll-wrapper
     main.general-content.split
-    > .scroll-wrapper-inner {
+   >.scroll-wrapper-inner {
     grid-template-columns: 62% 33%;
     grid-column-gap: 5%;
   }
@@ -1794,7 +1796,7 @@ main.general-content.split .left {
   }
 }
 
-main.general-content.split .left > *:first-child {
+main.general-content.split .left>*:first-child {
   margin-top: 0;
 }
 
@@ -1835,7 +1837,7 @@ main.general-content.split .right {
   padding: 0.5em;
 }
 
-.post-pagination ul li a {
+.post-pagination ul li a, .post-pagination ul li span {
   display: block;
   height: 44px;
   line-height: 44px;
@@ -1843,13 +1845,15 @@ main.general-content.split .right {
   background: #edf0fa;
 }
 
-.post-pagination ul li.active a {
+.post-pagination ul li.active a, .post-pagination ul li span {
   background-color: #090e22;
   color: #fff;
 }
 
 .post-pagination ul li.prev a,
-.post-pagination ul li.next a {
+.post-pagination ul li a.prev,
+.post-pagination ul li.next a,
+.post-pagination ul li a.next {
   text-indent: 150%;
   white-space: nowrap;
   overflow: hidden;
@@ -1857,7 +1861,9 @@ main.general-content.split .right {
 }
 
 .post-pagination ul li.prev a:before,
-.post-pagination ul li.next a:before {
+.post-pagination ul li a.prev:before,
+.post-pagination ul li.next a:before,
+.post-pagination ul li a.next:before {
   text-indent: 0;
   float: left;
   font-size: 1.2rem;
@@ -1869,11 +1875,13 @@ main.general-content.split .right {
   line-height: 44px;
 }
 
-.post-pagination ul li.prev a:before {
+.post-pagination ul li.prev a:before,
+.post-pagination ul li a.prev:before {
   content: "\e906";
 }
 
-.post-pagination ul li.next a:before {
+.post-pagination ul li.next a:before,
+.post-pagination ul li a.next:before {
   content: "\e90d";
 }
 
@@ -2266,6 +2274,10 @@ main.general-content.split .right {
   content: "\e905";
 }
 
+.site-footer-extra ul.social li a.facebook:before {
+  content: "\e903";
+}
+
 .site-footer-extra ul.social li a.linkedIn:before {
   content: "\e907";
 }
@@ -2350,7 +2362,7 @@ main.general-content.split .right {
   flex: 0 0 100%;
 }
 
-.swanky-gallery .gallery-item .image > a {
+.swanky-gallery .gallery-item .image>a {
   display: block;
   position: relative;
   width: 100%;
@@ -2426,7 +2438,7 @@ main.general-content.split .right {
   margin: 0;
 }
 
-.swanky-gallery .gallery-item .content > *:not(h3) {
+.swanky-gallery .gallery-item .content>*:not(h3) {
   display: none;
   opacity: 0;
 }
@@ -2502,7 +2514,7 @@ main.general-content.split .right {
   padding-bottom: 0;
 }
 
-.swanky-gallery.single-active li.active .image > a {
+.swanky-gallery.single-active li.active .image>a {
   height: 100%;
   padding-bottom: 0 !important;
 }
@@ -2581,7 +2593,7 @@ main.general-content.split .right {
   li.active
   .content
   .inner-content-wrap
-  > *:first-child {
+ >*:first-child {
   margin-top: 0;
 }
 
@@ -2589,11 +2601,11 @@ main.general-content.split .right {
   li.active
   .content
   .inner-content-wrap
-  > *:last-child {
+ >*:last-child {
   margin-bottom: 0;
 }
 
-.swanky-gallery.single-active li.active .content > *:not(h3) {
+.swanky-gallery.single-active li.active .content>*:not(h3) {
   display: block;
   opacity: 1;
   transition-delay: 0.5s;
@@ -2640,7 +2652,7 @@ main.general-content.split .right {
   }
 }
 
-.post-archive-wrapper .left > div {
+.post-archive-wrapper .left>div {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5em;
@@ -2721,7 +2733,7 @@ main.general-content.split .right {
   padding: 0;
 }
 
-#secondary ul.news-categories > * + * {
+#secondary ul.news-categories>* + * {
   margin-top: 1em !important;
 }
 
@@ -2736,7 +2748,7 @@ main.general-content.split .right {
   }
 }
 
-#secondary ul.news-categories > li > a {
+#secondary ul.news-categories>li>a {
   background-color: #edf0fa;
 }
 
@@ -2754,8 +2766,8 @@ main.general-content.split .right {
   padding: 0.75em;
 }
 
-#secondary ul.news-categories li > a,
-#secondary ul.news-categories li > span {
+#secondary ul.news-categories li>a,
+#secondary ul.news-categories li>span {
   background-color: #161d3a;
   color: #fff;
 }
@@ -2802,7 +2814,7 @@ main.general-content.split .right {
   line-height: 1;
 }
 
-#secondary > * + * {
+#secondary>* + * {
   margin-top: 1em !important;
 }
 
@@ -3685,19 +3697,19 @@ p.posted-date {
   }
 }
 
-.home-news .news-scroll-wrapper .scroll-wrapper-inner > div {
+.home-news .news-scroll-wrapper .scroll-wrapper-inner>div {
   flex: 0 0 90%;
   padding: 0.5rem;
 }
 
 @media (min-width: 561px) {
-  .home-news .news-scroll-wrapper .scroll-wrapper-inner > div {
+  .home-news .news-scroll-wrapper .scroll-wrapper-inner>div {
     flex: 0 0 45%;
   }
 }
 
 @media (min-width: 1025px) {
-  .home-news .news-scroll-wrapper .scroll-wrapper-inner > div {
+  .home-news .news-scroll-wrapper .scroll-wrapper-inner>div {
     flex: 0 0 31%;
   }
 }
@@ -4607,11 +4619,11 @@ p.posted-date {
   color: #fff;
 }
 
-.contact-split-left > * {
+.contact-split-left>* {
   max-width: 628px;
 }
 
-.contact-split-left > *:first-child {
+.contact-split-left>*:first-child {
   max-width: 400px;
 }
 
@@ -4684,7 +4696,7 @@ p.posted-date {
   justify-content: space-between;
 }
 
-.general-content > *:not(.full-width-header) {
+.general-content>*:not(.full-width-header) {
   position: relative;
 }
 
@@ -4841,16 +4853,16 @@ p.posted-date {
   margin-left: 1.5em;
 }
 
-.general-content > ul li a:not(.btn),
-.general-content > p a:not(.btn),
+.general-content>ul li a:not(.btn),
+.general-content>p a:not(.btn),
 .general-content .component a:not(.btn),
 .general-content .wp-block-columns a:not(.btn),
 .general-content .wp-block-pullquote:not(.has-white-color) a:not(.btn),
-.general-content > .contain a:not(.btn):not([rel="prev"]):not([rel="next"]),
+.general-content>.contain a:not(.btn):not([rel="prev"]):not([rel="next"]),
 .home-news
   .news-scroll-wrapper
   .general-content
-  > .scroll-wrapper-inner
+ >.scroll-wrapper-inner
   a:not(.btn):not([rel="prev"]):not([rel="next"]) {
   color: #e8641b;
 }
@@ -5198,42 +5210,42 @@ body.mega-menu-toggled .general-content.full-header {
   }
 }
 
-main.general-content > p,
-main.general-content > .wp-block-image,
-main.general-content > ul,
-main.general-content > ol,
-main.general-content > .wp-block-separator,
-main.general-content > .wp-block-pullquote,
-main.general-content > .wp-block-table,
-main.general-content > .wp-block-cover,
-main.general-content > .wp-block-buttons,
-main.general-content > .wp-block-columns,
-main.general-content > .wp-block-gallery,
-main.general-content > .wp-block-embed,
-div.general-content > p,
-div.general-content > .wp-block-image,
-div.general-content > ul,
-div.general-content > ol,
-div.general-content > .wp-block-separator,
-div.general-content > .wp-block-pullquote,
-div.general-content > .wp-block-table,
-div.general-content > .wp-block-cover,
-div.general-content > .wp-block-buttons,
-div.general-content > .wp-block-columns,
-div.general-content > .wp-block-gallery,
-div.general-content > .wp-block-embed,
-.editor-styles-wrapper > p,
-.editor-styles-wrapper > .wp-block-image,
-.editor-styles-wrapper > ul,
-.editor-styles-wrapper > ol,
-.editor-styles-wrapper > .wp-block-separator,
-.editor-styles-wrapper > .wp-block-pullquote,
-.editor-styles-wrapper > .wp-block-table,
-.editor-styles-wrapper > .wp-block-cover,
-.editor-styles-wrapper > .wp-block-buttons,
-.editor-styles-wrapper > .wp-block-columns,
-.editor-styles-wrapper > .wp-block-gallery,
-.editor-styles-wrapper > .wp-block-embed {
+main.general-content>p,
+main.general-content>.wp-block-image,
+main.general-content>ul,
+main.general-content>ol,
+main.general-content>.wp-block-separator,
+main.general-content>.wp-block-pullquote,
+main.general-content>.wp-block-table,
+main.general-content>.wp-block-cover,
+main.general-content>.wp-block-buttons,
+main.general-content>.wp-block-columns,
+main.general-content>.wp-block-gallery,
+main.general-content>.wp-block-embed,
+div.general-content>p,
+div.general-content>.wp-block-image,
+div.general-content>ul,
+div.general-content>ol,
+div.general-content>.wp-block-separator,
+div.general-content>.wp-block-pullquote,
+div.general-content>.wp-block-table,
+div.general-content>.wp-block-cover,
+div.general-content>.wp-block-buttons,
+div.general-content>.wp-block-columns,
+div.general-content>.wp-block-gallery,
+div.general-content>.wp-block-embed,
+.editor-styles-wrapper>p,
+.editor-styles-wrapper>.wp-block-image,
+.editor-styles-wrapper>ul,
+.editor-styles-wrapper>ol,
+.editor-styles-wrapper>.wp-block-separator,
+.editor-styles-wrapper>.wp-block-pullquote,
+.editor-styles-wrapper>.wp-block-table,
+.editor-styles-wrapper>.wp-block-cover,
+.editor-styles-wrapper>.wp-block-buttons,
+.editor-styles-wrapper>.wp-block-columns,
+.editor-styles-wrapper>.wp-block-gallery,
+.editor-styles-wrapper>.wp-block-embed {
   max-width: 850px;
   margin-left: auto;
   margin-right: auto;
@@ -5241,42 +5253,42 @@ div.general-content > .wp-block-embed,
 }
 
 @media (min-width: 1025px) {
-  main.general-content > p,
-  main.general-content > .wp-block-image,
-  main.general-content > ul,
-  main.general-content > ol,
-  main.general-content > .wp-block-separator,
-  main.general-content > .wp-block-pullquote,
-  main.general-content > .wp-block-table,
-  main.general-content > .wp-block-cover,
-  main.general-content > .wp-block-buttons,
-  main.general-content > .wp-block-columns,
-  main.general-content > .wp-block-gallery,
-  main.general-content > .wp-block-embed,
-  div.general-content > p,
-  div.general-content > .wp-block-image,
-  div.general-content > ul,
-  div.general-content > ol,
-  div.general-content > .wp-block-separator,
-  div.general-content > .wp-block-pullquote,
-  div.general-content > .wp-block-table,
-  div.general-content > .wp-block-cover,
-  div.general-content > .wp-block-buttons,
-  div.general-content > .wp-block-columns,
-  div.general-content > .wp-block-gallery,
-  div.general-content > .wp-block-embed,
-  .editor-styles-wrapper > p,
-  .editor-styles-wrapper > .wp-block-image,
-  .editor-styles-wrapper > ul,
-  .editor-styles-wrapper > ol,
-  .editor-styles-wrapper > .wp-block-separator,
-  .editor-styles-wrapper > .wp-block-pullquote,
-  .editor-styles-wrapper > .wp-block-table,
-  .editor-styles-wrapper > .wp-block-cover,
-  .editor-styles-wrapper > .wp-block-buttons,
-  .editor-styles-wrapper > .wp-block-columns,
-  .editor-styles-wrapper > .wp-block-gallery,
-  .editor-styles-wrapper > .wp-block-embed {
+  main.general-content>p,
+  main.general-content>.wp-block-image,
+  main.general-content>ul,
+  main.general-content>ol,
+  main.general-content>.wp-block-separator,
+  main.general-content>.wp-block-pullquote,
+  main.general-content>.wp-block-table,
+  main.general-content>.wp-block-cover,
+  main.general-content>.wp-block-buttons,
+  main.general-content>.wp-block-columns,
+  main.general-content>.wp-block-gallery,
+  main.general-content>.wp-block-embed,
+  div.general-content>p,
+  div.general-content>.wp-block-image,
+  div.general-content>ul,
+  div.general-content>ol,
+  div.general-content>.wp-block-separator,
+  div.general-content>.wp-block-pullquote,
+  div.general-content>.wp-block-table,
+  div.general-content>.wp-block-cover,
+  div.general-content>.wp-block-buttons,
+  div.general-content>.wp-block-columns,
+  div.general-content>.wp-block-gallery,
+  div.general-content>.wp-block-embed,
+  .editor-styles-wrapper>p,
+  .editor-styles-wrapper>.wp-block-image,
+  .editor-styles-wrapper>ul,
+  .editor-styles-wrapper>ol,
+  .editor-styles-wrapper>.wp-block-separator,
+  .editor-styles-wrapper>.wp-block-pullquote,
+  .editor-styles-wrapper>.wp-block-table,
+  .editor-styles-wrapper>.wp-block-cover,
+  .editor-styles-wrapper>.wp-block-buttons,
+  .editor-styles-wrapper>.wp-block-columns,
+  .editor-styles-wrapper>.wp-block-gallery,
+  .editor-styles-wrapper>.wp-block-embed {
     padding: 0 1.5rem;
   }
 }
@@ -5429,16 +5441,16 @@ div.general-content .wp-block-image figcaption,
   text-align: center;
 }
 
-main.general-content > ul:not(.blocks-gallery-grid),
-div.general-content > ul:not(.blocks-gallery-grid),
-.editor-styles-wrapper > ul:not(.blocks-gallery-grid) {
+main.general-content>ul:not(.blocks-gallery-grid),
+div.general-content>ul:not(.blocks-gallery-grid),
+.editor-styles-wrapper>ul:not(.blocks-gallery-grid) {
   padding-left: 3rem;
 }
 
 @media (min-width: 1025px) {
-  main.general-content > ul:not(.blocks-gallery-grid),
-  div.general-content > ul:not(.blocks-gallery-grid),
-  .editor-styles-wrapper > ul:not(.blocks-gallery-grid) {
+  main.general-content>ul:not(.blocks-gallery-grid),
+  div.general-content>ul:not(.blocks-gallery-grid),
+  .editor-styles-wrapper>ul:not(.blocks-gallery-grid) {
     padding-left: 3.5rem;
   }
 }
@@ -5953,50 +5965,50 @@ div.general-content
   text-align: left;
 }
 
-main.general-content > h1,
-main.general-content > h2,
-main.general-content > h3,
-main.general-content > h4,
-.contact-split-right-form main.general-content > .gform_title,
-.contact-split-right-notice main.general-content > .gform_title,
-main.general-content > h5,
-main.general-content > h6,
-#mega-menu-holder .contain main.general-content > a,
+main.general-content>h1,
+main.general-content>h2,
+main.general-content>h3,
+main.general-content>h4,
+.contact-split-right-form main.general-content>.gform_title,
+.contact-split-right-notice main.general-content>.gform_title,
+main.general-content>h5,
+main.general-content>h6,
+#mega-menu-holder .contain main.general-content>a,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
   main.general-content
-  > a,
+ >a,
 .home-news
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
   main.general-content
-  > a,
-.swanky-gallery .gallery-item .content main.general-content > h3,
-div.general-content:not(#page) > h1,
-div.general-content:not(#page) > h2,
-div.general-content:not(#page) > h3,
-div.general-content:not(#page) > h4,
-.contact-split-right-form div.general-content:not(#page) > .gform_title,
-.contact-split-right-notice div.general-content:not(#page) > .gform_title,
-div.general-content:not(#page) > h5,
-div.general-content:not(#page) > h6,
-#mega-menu-holder .contain div.general-content:not(#page) > a,
+ >a,
+.swanky-gallery .gallery-item .content main.general-content>h3,
+div.general-content:not(#page)>h1,
+div.general-content:not(#page)>h2,
+div.general-content:not(#page)>h3,
+div.general-content:not(#page)>h4,
+.contact-split-right-form div.general-content:not(#page)>.gform_title,
+.contact-split-right-notice div.general-content:not(#page)>.gform_title,
+div.general-content:not(#page)>h5,
+div.general-content:not(#page)>h6,
+#mega-menu-holder .contain div.general-content:not(#page)>a,
 #mega-menu-holder
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
   div.general-content:not(#page)
-  > a,
+ >a,
 .home-news
   .news-scroll-wrapper
   #mega-menu-holder
   .scroll-wrapper-inner
   div.general-content:not(#page)
-  > a,
-.swanky-gallery .gallery-item .content div.general-content:not(#page) > h3 {
+ >a,
+.swanky-gallery .gallery-item .content div.general-content:not(#page)>h3 {
   max-width: 850px;
   margin-left: auto;
   margin-right: auto;
@@ -6004,107 +6016,107 @@ div.general-content:not(#page) > h6,
 }
 
 @media (min-width: 1025px) {
-  main.general-content > h1,
-  main.general-content > h2,
-  main.general-content > h3,
-  main.general-content > h4,
-  .contact-split-right-form main.general-content > .gform_title,
-  .contact-split-right-notice main.general-content > .gform_title,
-  main.general-content > h5,
-  main.general-content > h6,
-  #mega-menu-holder .contain main.general-content > a,
+  main.general-content>h1,
+  main.general-content>h2,
+  main.general-content>h3,
+  main.general-content>h4,
+  .contact-split-right-form main.general-content>.gform_title,
+  .contact-split-right-notice main.general-content>.gform_title,
+  main.general-content>h5,
+  main.general-content>h6,
+  #mega-menu-holder .contain main.general-content>a,
   #mega-menu-holder
     .home-news
     .news-scroll-wrapper
     .scroll-wrapper-inner
     main.general-content
-    > a,
+   >a,
   .home-news
     .news-scroll-wrapper
     #mega-menu-holder
     .scroll-wrapper-inner
     main.general-content
-    > a,
-  .swanky-gallery .gallery-item .content main.general-content > h3,
-  div.general-content:not(#page) > h1,
-  div.general-content:not(#page) > h2,
-  div.general-content:not(#page) > h3,
-  div.general-content:not(#page) > h4,
-  .contact-split-right-form div.general-content:not(#page) > .gform_title,
-  .contact-split-right-notice div.general-content:not(#page) > .gform_title,
-  div.general-content:not(#page) > h5,
-  div.general-content:not(#page) > h6,
-  #mega-menu-holder .contain div.general-content:not(#page) > a,
+   >a,
+  .swanky-gallery .gallery-item .content main.general-content>h3,
+  div.general-content:not(#page)>h1,
+  div.general-content:not(#page)>h2,
+  div.general-content:not(#page)>h3,
+  div.general-content:not(#page)>h4,
+  .contact-split-right-form div.general-content:not(#page)>.gform_title,
+  .contact-split-right-notice div.general-content:not(#page)>.gform_title,
+  div.general-content:not(#page)>h5,
+  div.general-content:not(#page)>h6,
+  #mega-menu-holder .contain div.general-content:not(#page)>a,
   #mega-menu-holder
     .home-news
     .news-scroll-wrapper
     .scroll-wrapper-inner
     div.general-content:not(#page)
-    > a,
+   >a,
   .home-news
     .news-scroll-wrapper
     #mega-menu-holder
     .scroll-wrapper-inner
     div.general-content:not(#page)
-    > a,
-  .swanky-gallery .gallery-item .content div.general-content:not(#page) > h3 {
+   >a,
+  .swanky-gallery .gallery-item .content div.general-content:not(#page)>h3 {
     padding: 0 1.5rem;
   }
 }
 
-main.general-content > ul,
+main.general-content>ul,
 main.general-content .call-to-action ul,
-main.general-content .contain > ul,
-main.general-content .home-news .news-scroll-wrapper .scroll-wrapper-inner > ul,
-.home-news .news-scroll-wrapper main.general-content .scroll-wrapper-inner > ul,
+main.general-content .contain>ul,
+main.general-content .home-news .news-scroll-wrapper .scroll-wrapper-inner>ul,
+.home-news .news-scroll-wrapper main.general-content .scroll-wrapper-inner>ul,
 main.general-content .wp-block-columns ul,
-div.general-content:not(#page) > ul,
+div.general-content:not(#page)>ul,
 div.general-content:not(#page) .call-to-action ul,
-div.general-content:not(#page) .contain > ul,
+div.general-content:not(#page) .contain>ul,
 div.general-content:not(#page)
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul,
+ >ul,
 .home-news
   .news-scroll-wrapper
   div.general-content:not(#page)
   .scroll-wrapper-inner
-  > ul,
+ >ul,
 div.general-content:not(#page) .wp-block-columns ul {
   list-style: none;
 }
 
-main.general-content > ul li,
+main.general-content>ul li,
 main.general-content .call-to-action ul li,
-main.general-content .contain > ul li,
+main.general-content .contain>ul li,
 main.general-content
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
+ >ul
   li,
 .home-news
   .news-scroll-wrapper
   main.general-content
   .scroll-wrapper-inner
-  > ul
+ >ul
   li,
 main.general-content .wp-block-columns ul li,
-div.general-content:not(#page) > ul li,
+div.general-content:not(#page)>ul li,
 div.general-content:not(#page) .call-to-action ul li,
-div.general-content:not(#page) .contain > ul li,
+div.general-content:not(#page) .contain>ul li,
 div.general-content:not(#page)
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
+ >ul
   li,
 .home-news
   .news-scroll-wrapper
   div.general-content:not(#page)
   .scroll-wrapper-inner
-  > ul
+ >ul
   li,
 div.general-content:not(#page) .wp-block-columns ul li {
   position: relative;
@@ -6112,36 +6124,36 @@ div.general-content:not(#page) .wp-block-columns ul li {
   padding: 0.2em;
 }
 
-main.general-content > ul li:before,
+main.general-content>ul li:before,
 main.general-content .call-to-action ul li:before,
-main.general-content .contain > ul li:before,
+main.general-content .contain>ul li:before,
 main.general-content
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
+ >ul
   li:before,
 .home-news
   .news-scroll-wrapper
   main.general-content
   .scroll-wrapper-inner
-  > ul
+ >ul
   li:before,
 main.general-content .wp-block-columns ul li:before,
-div.general-content:not(#page) > ul li:before,
+div.general-content:not(#page)>ul li:before,
 div.general-content:not(#page) .call-to-action ul li:before,
-div.general-content:not(#page) .contain > ul li:before,
+div.general-content:not(#page) .contain>ul li:before,
 div.general-content:not(#page)
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
+ >ul
   li:before,
 .home-news
   .news-scroll-wrapper
   div.general-content:not(#page)
   .scroll-wrapper-inner
-  > ul
+ >ul
   li:before,
 div.general-content:not(#page) .wp-block-columns ul li:before {
   content: "";
@@ -6155,53 +6167,53 @@ div.general-content:not(#page) .wp-block-columns ul li:before {
   border-color: transparent transparent transparent #e8641b;
 }
 
-main.general-content > ul li ul,
+main.general-content>ul li ul,
 main.general-content .call-to-action ul li ul,
-main.general-content .contain > ul li ul,
+main.general-content .contain>ul li ul,
 main.general-content
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
+ >ul
   li
   ul,
 .home-news
   .news-scroll-wrapper
   main.general-content
   .scroll-wrapper-inner
-  > ul
+ >ul
   li
   ul,
 main.general-content .wp-block-columns ul li ul,
-div.general-content:not(#page) > ul li ul,
+div.general-content:not(#page)>ul li ul,
 div.general-content:not(#page) .call-to-action ul li ul,
-div.general-content:not(#page) .contain > ul li ul,
+div.general-content:not(#page) .contain>ul li ul,
 div.general-content:not(#page)
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
+ >ul
   li
   ul,
 .home-news
   .news-scroll-wrapper
   div.general-content:not(#page)
   .scroll-wrapper-inner
-  > ul
+ >ul
   li
   ul,
 div.general-content:not(#page) .wp-block-columns ul li ul {
   list-style: none;
 }
 
-main.general-content > ul li ul li:before,
+main.general-content>ul li ul li:before,
 main.general-content .call-to-action ul li ul li:before,
-main.general-content .contain > ul li ul li:before,
+main.general-content .contain>ul li ul li:before,
 main.general-content
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
+ >ul
   li
   ul
   li:before,
@@ -6209,19 +6221,19 @@ main.general-content
   .news-scroll-wrapper
   main.general-content
   .scroll-wrapper-inner
-  > ul
+ >ul
   li
   ul
   li:before,
 main.general-content .wp-block-columns ul li ul li:before,
-div.general-content:not(#page) > ul li ul li:before,
+div.general-content:not(#page)>ul li ul li:before,
 div.general-content:not(#page) .call-to-action ul li ul li:before,
-div.general-content:not(#page) .contain > ul li ul li:before,
+div.general-content:not(#page) .contain>ul li ul li:before,
 div.general-content:not(#page)
   .home-news
   .news-scroll-wrapper
   .scroll-wrapper-inner
-  > ul
+ >ul
   li
   ul
   li:before,
@@ -6229,7 +6241,7 @@ div.general-content:not(#page)
   .news-scroll-wrapper
   div.general-content:not(#page)
   .scroll-wrapper-inner
-  > ul
+ >ul
   li
   ul
   li:before,
@@ -6555,4 +6567,8 @@ div.general-content:not(#page) .wp-block-columns ul li ul li:before {
 
 .has-dark-grey-background-color.has-dark-grey-color {
   color: #fff !important;
+}
+
+.contact-split-right-form input {
+  width:100%
 }

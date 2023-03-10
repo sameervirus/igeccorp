@@ -1,5 +1,11 @@
 <?php /* Template Name: Main Page */ 
-    get_header();
+    get_header(null, ['homeIdClass' => ' site ']);
+    $the_post = get_post();
+    $video = '';
+    if( get_post_meta( $the_post->ID, 'home_video', true ) ) {
+      $video = get_post_meta( $the_post->ID, 'home_video', true );
+    }
+
 ?>
 
 <main id="primary" class="home">
@@ -12,133 +18,276 @@
             </div>
         </div>
         <div class="video-container">
-            <video autoplay="" loop="" muted="" preload="auto" src="http://127.0.0.1:8008/wp-content/uploads/2023/03/videoplayback.mp4"></video>
-            
+            <video autoplay="" loop="" muted="" preload="auto" src="<?php echo $video; ?>"></video>
         </div>
     </div>
     <div class="home-gradient">
-   <div class="home-sectors">
-      <div class="contain">
-         <div class="intro">
-            <div class="text">
-               <span>Sectors</span>
-               <h2>A British engineering company providing high voltage excellence, nationwide</h2>
-               <p>Our team of electrical engineering experts are equipped to handle projects from simple cabling installations to complete substation design and build contracts up to 132 kV.</p>
+      <?php $section_sectors_page = get_page_by_title('Sectors'); if($section_sectors_page) : ?>
+      <div class="home-sectors">
+         <div class="contain">
+            <div class="intro">
+               <div class="text">
+                  <span><?php echo $section_sectors_page->post_title; ?></span>
+                  <h2><?php echo get_post_meta($section_sectors_page->ID, 'sub_title', true); ?></h2>
+                  <p><?php echo $section_sectors_page->post_excerpt; ?></p>
+               </div>
+               <div class="button">
+                  <a href="/sectors/" class="btn arrow">View all sectors</a>
+               </div>
             </div>
-            <div class="button">
-               <a href="https://www.powersystemsuk.co.uk/sectors/" class="btn arrow">View all sectors</a>
+            <div class="featured">
+               <?php
+               
+               $args = array(
+                  'post_type'      => 'page',
+                  'posts_per_page' => 2,
+                  'post_parent'    => $section_sectors_page->ID,
+                  'order'          => 'ASC',
+               );
+
+
+               $section_sectors_parent = new WP_Query( $args );
+
+               if ( $section_sectors_parent->have_posts() ) : ?>
+
+                  <?php while ( $section_sectors_parent->have_posts() ) : $section_sectors_parent->the_post(); ?>
+
+                  <?php if (has_post_thumbnail( $post->ID ) ): ?>
+                  <a href="<?php the_permalink(); ?>" class="featured-item">
+                     <div class="featured-item-image">
+                        <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+                     </div>
+                     <div class="featured-item-content">
+                        <h4><?php the_title(); ?></h4>
+                        <p><?php echo wp_trim_words(get_the_excerpt(), 36);?></p>
+                        <span class="inline-btn arrow">Read more</span>
+                     </div>
+                  </a>
+                  <?php endif; ?>
+
+               <?php endwhile; ?>
+
+               <?php endif; wp_reset_postdata(); ?>
+            </div>
+            <div class="sectors">
+               <?php
+               $args = array(
+                  'post_type'      => 'page',
+                  'posts_per_page' => 20,
+                  'post_parent'    => $section_sectors_page->ID,
+                  'order'          => 'ASC',
+                  'offset'         => 2
+               );
+
+
+               $section_sectors_parent = new WP_Query( $args );
+
+               if ( $section_sectors_parent->have_posts() ) : ?>
+
+                  <?php while ( $section_sectors_parent->have_posts() ) : $section_sectors_parent->the_post(); ?>
+
+                  <?php if (has_post_thumbnail( $post->ID ) ): ?>
+                  <a href="<?php the_permalink(); ?>" class="sectors-item">
+                     <div class="sectors-item-image">
+                        <?php echo get_the_post_thumbnail( $post->ID, 'medium' ); ?>
+                     </div>
+                     <div class="sectors-item-content">
+                        <h6><?php the_title(); ?></h6>
+                        <span class="inline-btn arrow">Read more</span>
+                     </div>
+                  </a>
+                  <?php endif; ?>
+
+               <?php endwhile; ?>
+
+               <?php endif; wp_reset_postdata(); ?>
             </div>
          </div>
-         <div class="featured">
-            <a href="https://www.powersystemsuk.co.uk/sectors/renewable-energy/" class="featured-item">
-               <div class="featured-item-image">
-                  <img width="2560" height="1920" src="https://www.powersystemsuk.co.uk/content/uploads/2022/03/Renewable-energy-wind-solar-energy-scaled.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.powersystemsuk.co.uk/content/uploads/2022/03/Renewable-energy-wind-solar-energy-scaled.jpg 2560w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Renewable-energy-wind-solar-energy-300x225.jpg 300w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Renewable-energy-wind-solar-energy-1024x768.jpg 1024w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Renewable-energy-wind-solar-energy-768x576.jpg 768w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Renewable-energy-wind-solar-energy-1536x1152.jpg 1536w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Renewable-energy-wind-solar-energy-2048x1536.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px">																					
+      </div>
+      <?php endif; ?>
+      <?php
+         $section_services_page = get_page_by_title('Services'); // enter your page title
+         if ( $section_services_page ) : ?>
+      <div class="home-services">
+         <div class="contain">
+            <div class="intro">
+               <div class="text">
+                  <span><?php echo $section_services_page->post_title; ?></span>
+                  <h2><?php echo get_post_meta($section_services_page->ID, 'sub_title', true); ?></h2>
+                  <p><?php echo $section_services_page->post_excerpt; ?></p>
                </div>
-               <div class="featured-item-content">
-                  <h4>Renewable Energy</h4>
-                  <p>With so many projects successfully constructed and exporting power to the grid, whether requiring a turnkey installation, electrical infrastructure or grid connection, Powersystems are an experienced partner in all forms of renewable energy generation projects.</p>
-                  <span class="inline-btn arrow">Read more</span>
+               <div class="button">
+                  <a href="/services/electrical-infrastructure/" class="btn arrow">View all services</a>
                </div>
-            </a>
-            <a href="https://www.powersystemsuk.co.uk/sectors/generation/" class="featured-item">
-               <div class="featured-item-image">
-                  <img width="1280" height="768" src="https://www.powersystemsuk.co.uk/content/uploads/2022/02/STOR.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.powersystemsuk.co.uk/content/uploads/2022/02/STOR.jpeg 1280w, https://www.powersystemsuk.co.uk/content/uploads/2022/02/STOR-300x180.jpeg 300w, https://www.powersystemsuk.co.uk/content/uploads/2022/02/STOR-1024x614.jpeg 1024w, https://www.powersystemsuk.co.uk/content/uploads/2022/02/STOR-768x461.jpeg 768w" sizes="(max-width: 1280px) 100vw, 1280px">																					
-               </div>
-               <div class="featured-item-content">
-                  <h4>Generation</h4>
-                  <p>Powersystems offer a complete design and installation package for generation schemes to suit the individual needs of every customer. Whatever the needs of your project, we can adapt our ideas and provide you with exactly what you want.</p>
-                  <span class="inline-btn arrow">Read more</span>
-               </div>
-            </a>
+            </div>
+            <div class="services-grid">
+            <?php
+                  
+               $args = array(
+                  'post_type'      => 'page',
+                  'posts_per_page' => 8,
+                  'post_parent'    => $section_services_page->ID,
+                  'order'          => 'ASC',
+               );
+
+
+               $section_services_parent = new WP_Query( $args );
+
+               if ( $section_services_parent->have_posts() ) : ?>
+
+                  <?php while ( $section_services_parent->have_posts() ) : $section_services_parent->the_post(); ?>
+
+                  <?php if (has_post_thumbnail( $post->ID ) ): ?>
+                  <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+                  <a href="<?php the_permalink(); ?>" class="service" style="background-image:url('<?php echo $image[0]; ?>')">
+                     <h6><?php the_title(); ?></h6>
+                     <span>Read more</span>
+                  </a>
+                  <?php endif; ?>
+
+               <?php endwhile; ?>
+
+               <?php endif; wp_reset_postdata(); ?>
+            </div>
          </div>
-         <div class="sectors">
-            <a href="https://www.powersystemsuk.co.uk/sectors/electrical-vehicle/" class="sectors-item">
-               <div class="sectors-item-image">
-                  <img width="400" height="284" src="https://www.powersystemsuk.co.uk/content/uploads/2022/02/Electrical-Vehicle-Charging-1-400x284-1.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.powersystemsuk.co.uk/content/uploads/2022/02/Electrical-Vehicle-Charging-1-400x284-1.jpeg 400w, https://www.powersystemsuk.co.uk/content/uploads/2022/02/Electrical-Vehicle-Charging-1-400x284-1-300x213.jpeg 300w" sizes="(max-width: 400px) 100vw, 400px">																					
+      </div>
+      <?php endif; ?>
+    </div>
+   <div class="home-gradient">
+      <?php
+         $section_projects_page = get_page_by_title('Projects'); // enter your page title
+         if ( $section_projects_page ) : ?>
+      <div class="home-projects">
+         <div class="contain">
+            <div class="intro">
+               <span><?php echo $section_projects_page->post_title; ?></span>
+               <h2><?php echo get_post_meta($section_projects_page->ID, 'sub_title', true); ?></h2>
+               <a class="btn arrow" href="/projects/">View all projects</a>
+            </div>
+            <div class="featured">
+            <?php
+               
+               $args = array(
+                  'post_type'      => 'page',
+                  'posts_per_page' => 4,
+                  'post_parent'    => $section_projects_page->ID,
+                  'order'          => 'ASC',
+               );
+
+
+               $section_projects_parent = new WP_Query( $args );
+
+               if ( $section_projects_parent->have_posts() ) : ?>
+
+                  <?php while ( $section_projects_parent->have_posts() ) : $section_projects_parent->the_post(); ?>
+
+                  <?php if (has_post_thumbnail( $post->ID ) ): ?>
+                  <a class="project" href="<?php the_permalink(); ?>">
+                     <div class="project-image">
+                        <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+                     </div>
+                     <div class="project-content">
+                        <h6><?php the_title(); ?></h6>
+                        <span class="inline-btn arrow">Read more</span>
+                     </div>
+                  </a>
+                  <?php endif; ?>
+
+               <?php endwhile; ?>
+
+               <?php endif; wp_reset_postdata(); ?>               
+            </div>
+         </div>
+      </div>
+      <?php endif; ?>
+      <div class="home-news">
+         <div class="contain">
+            <div class="intro">
+               <h2>Latest News</h2>
+               <a class="btn arrow" href="/news/">View all news</a>
+            </div>
+            <div class="news-articles">
+               <input type="hidden" id="currentNumScrollsNews" value="0">
+               <input type="hidden" id="newsPostsPerScroll" value="3">
+               <input type="hidden" id="totalNewsPosts" value="6">
+               <input type="hidden" id="totalNumScrollsNews" value="3">
+               <div class="news-scroll-wrapper">
+                  <div class="scroll-wrapper-inner" style="transform: translateX(0px);">
+                     <?php
+                     
+                     $args = array(
+                        'post_type'      => 'post',
+                        'posts_per_page' => 10,
+                        'order'          => 'DESC',
+                     );
+
+
+                     $posts = new WP_Query( $args );
+
+                     if ( $posts->have_posts() ) : ?>
+
+                        <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
+
+                        <?php if (has_post_thumbnail( $post->ID ) ): ?>                        
+                        <div>
+                           <a href="<?php the_permalink(); ?>" class="news-article">
+                              <div class="news-article-image">
+                                 <?php echo get_the_post_thumbnail( $post->ID, 'medium' ); ?>
+                              </div>
+                              <div class="news-article-content">
+                                 <h6><?php the_title(); ?></h6>
+                                 <span class="inline-btn arrow">Read more</span>
+                              </div>
+                           </a>
+                        </div>
+                        <?php endif; ?>
+
+                     <?php endwhile; ?>
+
+                     <?php endif; wp_reset_postdata(); ?>                      
+                  </div>
                </div>
-               <div class="sectors-item-content">
-                  <h6>EV Infrastructure</h6>
-                  <span class="inline-btn arrow">Read more</span>
+               <div class="scroll-navigation">
+                  <a href="#" class="prev disabled">Prev</a>
+                  <a href="#" class="next">Next</a>
                </div>
-            </a>
-            <a href="https://www.powersystemsuk.co.uk/sectors/nuclear-power/" class="sectors-item">
-               <div class="sectors-item-image">
-                  <img width="2560" height="1706" src="https://www.powersystemsuk.co.uk/content/uploads/2022/03/Hinkley-Point-C-scaled.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.powersystemsuk.co.uk/content/uploads/2022/03/Hinkley-Point-C-scaled.jpg 2560w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Hinkley-Point-C-300x200.jpg 300w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Hinkley-Point-C-1024x682.jpg 1024w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Hinkley-Point-C-768x512.jpg 768w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Hinkley-Point-C-1536x1024.jpg 1536w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Hinkley-Point-C-2048x1365.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px">																					
-               </div>
-               <div class="sectors-item-content">
-                  <h6>Nuclear Power</h6>
-                  <span class="inline-btn arrow">Read more</span>
-               </div>
-            </a>
-            <a href="https://www.powersystemsuk.co.uk/sectors/grid-stability/" class="sectors-item">
-               <div class="sectors-item-image">
-                  <img width="2560" height="1920" src="https://www.powersystemsuk.co.uk/content/uploads/2022/03/Keith-Greener-Grid-Park-scaled.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://www.powersystemsuk.co.uk/content/uploads/2022/03/Keith-Greener-Grid-Park-scaled.jpg 2560w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Keith-Greener-Grid-Park-300x225.jpg 300w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Keith-Greener-Grid-Park-1024x768.jpg 1024w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Keith-Greener-Grid-Park-768x576.jpg 768w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Keith-Greener-Grid-Park-1536x1152.jpg 1536w, https://www.powersystemsuk.co.uk/content/uploads/2022/03/Keith-Greener-Grid-Park-2048x1536.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px">																					
-               </div>
-               <div class="sectors-item-content">
-                  <h6>Grid Stability</h6>
-                  <span class="inline-btn arrow">Read more</span>
-               </div>
-            </a>
-            <a href="https://www.powersystemsuk.co.uk/sectors/commercial-industrial/" class="sectors-item">
-               <div class="sectors-item-image">
-                  <img width="150" height="150" src="https://www.powersystemsuk.co.uk/content/uploads/2022/10/Commercial-and-Industrial-Website-Banner-150x150-1-150x150-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" loading="lazy">																					
-               </div>
-               <div class="sectors-item-content">
-                  <h6>Commercial &amp; Industrial</h6>
-                  <span class="inline-btn arrow">Read more</span>
-               </div>
-            </a>
+            </div>
+            <a class="btn mobile-btn arrow" href="#">View all news</a>
          </div>
       </div>
    </div>
-   <div class="home-services">
+
+   <div class="home-carbon-free">
       <div class="contain">
-         <div class="intro">
-            <div class="text">
-               <span>Services</span>
-               <h2>Services spanning all voltages from 11 kV - 132 kV</h2>
-               <p>From small scale cable and jointing works to full turnkey electrical infrastructure and grid connections.</p>
-            </div>
-            <div class="button">
-               <a href="https://www.powersystemsuk.co.uk/services/electrical-infrastructure/" class="btn arrow">View all services</a>
-            </div>
+         <img src="https://www.powersystemsuk.co.uk/content/uploads/2022/02/carbon-free-future.jpg" alt="Powering the transition to a carbon free future" width="1100px">
+      </div>
+   </div>
+
+   <div class="home-customer-services">
+      <div class="contain">
+         <div class="customer-services">
+            <h3>Customer services</h3>
+            <ul>
+               <li><a class="btn arrow" href="/contact/">Report an Emergency</a></li>
+            </ul>
+            <p>Office opening hours: 9:00 am - 5:00 pm</p>
          </div>
-         <div class="services-grid">
-         <?php
-            $page = get_page_by_title('Services'); // enter your page title
-
-            $args = array(
-                'post_type'      => 'page',
-                'posts_per_page' => -1,
-                'post_parent'    => $page->ID,
-                'order'          => 'ASC',
-                'orderby'        => 'menu_order'
-            );
-
-
-            $parent = new WP_Query( $args );
-
-            if ( $parent->have_posts() ) : ?>
-
-                <?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
-
-                <?php if (has_post_thumbnail( $post->ID ) ): ?>
-                <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
-                <a href="<?php the_permalink(); ?>" class="service" style="background-image:url('<?php echo $image[0]; ?>')">
-                    <h6><?php the_title(); ?></h6>
-                    <span>Read more</span>
-                </a>
-                <?php endif; ?>
-
-            <?php endwhile; ?>
-
-            <?php endif; wp_reset_postdata(); ?>
-            
+         <div class="connect">
+            <h3>Connect with us</h3>
+            <ul>
+               <?php if(get_theme_mod('igeccorp_in_op')) : ?>
+               <li><a class="btn arrow" href="<?php echo get_theme_mod('igeccorp_in_op'); ?>" target="_blank">Connect with us on LinkedIn</a></li>
+               <?php endif; ?>
+               <?php if(get_theme_mod('igeccorp_fb_op')) : ?>
+               <li><a class="btn arrow" href="<?php echo get_theme_mod('igeccorp_fb_op'); ?>" target="_blank">Follow us on Facebook</a></li>
+               <?php endif; ?>
+               <?php if(get_theme_mod('igeccorp_tw_op')) : ?>
+               <li><a class="btn arrow" href="<?php echo get_theme_mod('igeccorp_tw_op'); ?>" target="_blank">Tweet us on Twitter</a></li>
+               <?php endif; ?>
+            </ul>
          </div>
       </div>
    </div>
-</div>
-
 </main><!-- #main -->
 <?php
     get_footer();
