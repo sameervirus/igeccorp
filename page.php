@@ -25,20 +25,15 @@ get_header(null, ['pageClass' => ' general-content-header full-header ', 'pageId
 			<?php if(get_post_meta($post->ID, 'logo', true)) : ?>
 			<div class="is-layout-flex wp-container-3 wp-block-columns are-vertically-aligned-center">
 				<div class="is-layout-flow wp-block-column is-vertically-aligned-center">
-					<h4 class="has-text-align-left" id="trusted-experience-in-wind-farm-grid-and-ebop-contracts"><?php echo get_post_meta($post->ID, 'sub_title', true); ?></h4>
+					<h4 class="has-text-align-left" id=""><?php echo the_excerpt(); ?></h4>
 				</div>
 				<div class="is-layout-flow wp-block-column is-vertically-aligned-center">
 					<div class="wp-block-image">
 						<figure class="aligncenter size-large">
-							<img decoding="async" width="1024" height="333" 
-								src="/wp-content/uploads/2023/03/cropped-white-logo-png.png" alt="" 
+							<img decoding="async" style="width: 100%; height:auto;" 
+								src="https://igeccorp.com/wp-content/uploads/2023/03/logo-png-1-e1678670653380.png" alt="" 
 								class="wp-image-1280" 
-								srcset="<?php echo get_post_meta($post->ID, 'logo', true); ?> 1024w, 
-								<?php echo get_post_meta($post->ID, 'logo', true); ?> 300w,
-								<?php echo get_post_meta($post->ID, 'logo', true); ?> 768w, 
-								<?php echo get_post_meta($post->ID, 'logo', true); ?> 1536w,
-								<?php echo get_post_meta($post->ID, 'logo', true); ?> 2048w" 
-								sizes="(max-width: 1024px) 100vw, 1024px">
+								/>
 						</figure>
 					</div>
 				</div>
@@ -49,6 +44,41 @@ get_header(null, ['pageClass' => ' general-content-header full-header ', 'pageId
 
 		endwhile; // End of the loop.
 		?>
+		
+		<?php get_template_part( 'template-parts/content', 'speak' ); ?>
+
+		<div class="services-list">
+			<div class="contain">
+		<?php 
+
+			$current_parent_id = wp_get_post_parent_id(get_the_ID());
+
+			$args = array(
+				'post_type'      => 'page',
+				'posts_per_page' => 999,
+				'post_parent'    => $current_parent_id,
+    			'post__not_in'   => array(get_the_ID()),
+				'order'          => 'ASC',
+			 );
+	
+	
+			 $parent = new WP_Query( $args );
+	
+			 if ( $parent->have_posts() ) : ?>
+	
+				<?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
+	
+				   <?php if (has_post_thumbnail( $post->ID ) ): ?>
+	
+						<?php get_template_part( 'template-parts/content', 'service' ); ?>
+	
+				   <?php endif; ?>
+	
+				<?php endwhile; ?>
+	
+			 <?php endif; wp_reset_postdata(); ?>
+			</div>
+		</div>
 
 		<?php if(get_the_title() == 'Job Opportunities') : ?>
 			<?php 

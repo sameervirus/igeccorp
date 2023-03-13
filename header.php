@@ -104,6 +104,7 @@ global $post;
 			<div class="contain">
 				<div class="general-content-centered-header-intro">
 					<div>
+						<span>SERVICES</span>
 						<h1><?php the_title(); ?></h1>
 					</div>
 				</div>
