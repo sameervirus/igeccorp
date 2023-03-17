@@ -67,7 +67,12 @@ global $post;
 			<div class="contain">
 				<div class="services-header-intro">
 					<div>
-						<span><?php the_title(); ?></span>
+						<?php
+							$parent_id = wp_get_post_parent_id( get_the_ID() );
+							$parent_title = get_the_title( $parent_id );
+							
+						?>
+						<span><?php echo $parent_title ?? the_title(); ?></span>
 						<h1 class="h3"><?php echo get_post_meta($post->ID, 'sub_title', true); ?></h1>
 						<?php the_excerpt(); ?>
 					</div>
@@ -104,7 +109,12 @@ global $post;
 			<div class="contain">
 				<div class="general-content-centered-header-intro">
 					<div>
-						<span>SERVICES</span>
+						<?php
+							$parent_id = get_post_ancestors( get_the_ID() );
+							$parent_title = get_the_title( end($parent_id) );
+							
+						?>
+						<span><?php echo $parent_title ?? the_title(); ?></span>
 						<h1><?php the_title(); ?></h1>
 					</div>
 				</div>

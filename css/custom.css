@@ -3473,6 +3473,7 @@ p.posted-date {
   font-size: 1.4rem;
   line-height: 1.3em;
   font-weight: 700;
+  margin-top: 1rem;
 }
 
 .home-achievements .achievements ul li a {
@@ -6571,4 +6572,9 @@ div.general-content:not(#page) .wp-block-columns ul li ul li:before {
 
 .contact-split-right-form input {
   width:100%
+}
+
+#mega-menu-holder .contain ul.sub-menu li {
+  white-space: nowrap;
+  overflow: hidden;
 }

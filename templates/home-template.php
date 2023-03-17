@@ -153,6 +153,65 @@
       </div>
       <?php endif; ?>
     </div>
+    <div class="home-achievements">
+      <div class="contain">
+         <div class="intro">
+            <span>Achievements</span>
+            <h2>We're the UK's first independent connection provider since 1997</h2>
+            <p>Here’s a few of our recent achievements</p>
+         </div>
+         <div class="achievements">
+            <div class="acheivement-scroll-wrapper">
+               <input type="hidden" id="currentNumScrollsAchievements" value="0">
+               <input type="hidden" id="AchievementsPerScroll" value="2">
+               <input type="hidden" id="totalAchievementsPosts" value="9">
+               <input type="hidden" id="totalNumScrollsAchievements" value="7">
+               <ul>
+                  <li>
+                     <p>Powersystems have connected 1,370 projects to the grid since 2000</p>
+                     <a href="https://www.powersystemsuk.co.uk/powersystems-have-connected-1370-projects-to-the-grid-since-2000/" class="inline-btn arrow">Read more</a>									
+                  </li>
+                  <li>
+                     <p>Powersystems celebrate 26 years as the UK's first Independent Connection Provider</p>
+                     <a href="https://www.powersystemsuk.co.uk/powersystems-celebrate-26-years-ners-accreditation-for-132-kv-work/" class="inline-btn arrow">Read more</a>									
+                  </li>
+                  <li>
+                     <p>Powersystems have connected 30% of all land based wind farms in the UK</p>
+                     <a href="https://www.powersystemsuk.co.uk/powersystems-connect-24-of-all-u-k-land-based-wind-farm-generation/" class="inline-btn arrow">Read more</a>									
+                  </li>
+                  <li>
+                     <p>Powersystems powering the world’s largest offshore wind farm Dogger Bank</p>
+                     <a href="https://www.powersystemsuk.co.uk/powersystems-powering-the-worlds-largest-offshore-wind-farm-dogger-bank/" class="inline-btn arrow">Read more</a>									
+                  </li>
+                  <li>
+                     <p>Powersystems awarded electrical infrastructure contract for a major tidal project off Anglesey</p>
+                     <a href="https://www.powersystemsuk.co.uk/powersystems-awarded-contract-for-a-major-tidal-project-off-anglesey/" class="inline-btn arrow">Read more</a>									
+                  </li>
+                  <li>
+                     <p>Powersystems awarded the HV contract for the 240 MW South Kyle Wind Farm</p>
+                     <a href="https://www.powersystemsuk.co.uk/powersystems-awarded-hv-contract-for-south-kyle-wind-farm/" class="inline-btn arrow">Read more</a>									
+                  </li>
+                  <li>
+                     <p>Powersystems Principal Contractor for UK's first greener grid park</p>
+                     <a href="https://www.powersystemsuk.co.uk/main-contractors-announced-for-uks-first-greener-grid-park/" class="inline-btn arrow">Read more</a>									
+                  </li>
+                  <li>
+                     <p>Powersystems receives RoSPA Gold Award for health and safety achievements</p>
+                     <a href="https://www.powersystemsuk.co.uk/powersystems-receives-rospa-gold-award/" class="inline-btn arrow">Read more</a>									
+                  </li>
+                  <li>
+                     <p>Powersystems return to Ray Wind Farm to integrate a 20 MW battery system</p>
+                     <a href="https://www.powersystemsuk.co.uk/powersystems-return-to-ray-wind-farm-to-co-loacte-a-20-mw-battery-system/" class="inline-btn arrow">Read more</a>									
+                  </li>
+               </ul>
+            </div>
+            <div class="scroll-navigation">
+               <a href="#" class="prev disabled">Prev</a>
+               <a href="#" class="next">Next</a>
+            </div>
+         </div>
+      </div>
+   </div>
    <div class="home-gradient">
       <?php
          $section_projects_page = get_page_by_title('Projects'); // enter your page title
