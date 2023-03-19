@@ -31,7 +31,7 @@
 				</div>
 				<div class="site-footer-links">
 					<div class="content">
-						<h5>About Us</h5>
+						<h5>Company</h5>
 						<div class="menu-about-us-container">
 							<?php
 								wp_nav_menu(
@@ -46,7 +46,7 @@
 				</div>
 				<div class="site-footer-links">
 					<div class="content">
-						<h5>Legal</h5>
+						<h5>News</h5>
 						<div class="menu-legal-container">
 							<?php
 								wp_nav_menu(
@@ -71,9 +71,15 @@
 			<div class="contain">
 				<p>© 2023 <?php echo get_bloginfo( 'name' ); ?></p>
 				<ul class="social">
-					<li><a class="twitter" href="<?php echo get_theme_mod('igeccorp_tw_op'); ?>" target="_blank">Twitter</a></li>
-					<li><a class="facebook" href="<?php echo get_theme_mod('igeccorp_fb_op'); ?>" target="_blank">Facebook</a></li>
-					<li><a class="linkedIn" href="<?php echo get_theme_mod('igeccorp_in_op'); ?>" target="_blank">LinkedIn</a></li>
+					<?php if(get_theme_mod('igeccorp_tw_op')) : ?>
+						<li><a class="twitter" href="<?php echo get_theme_mod('igeccorp_tw_op'); ?>" target="_blank">Twitter</a></li>
+					<?php endif; ?>
+					<?php if(get_theme_mod('igeccorp_fb_op')) : ?>
+						<li><a class="facebook" href="<?php echo get_theme_mod('igeccorp_fb_op'); ?>" target="_blank">Facebook</a></li>
+					<?php endif; ?>
+					<?php if(get_theme_mod('igeccorp_in_op')) : ?>
+						<li><a class="linkedIn" href="<?php echo get_theme_mod('igeccorp_in_op'); ?>" target="_blank">LinkedIn</a></li>
+					<?php endif; ?>
 				</ul>
 			</div>
 		</div>

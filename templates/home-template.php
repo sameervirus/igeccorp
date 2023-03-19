@@ -329,7 +329,8 @@
             <ul>
                <li><a class="btn arrow" href="/contact/">Report an Emergency</a></li>
             </ul>
-            <p>Office opening hours: 9:00 am - 5:00 pm</p>
+            <p>Saudi Arabia: Office opening hours: 9:00 am - 5:00 pm<br/>
+               Egypt: Office opening hours: 9:00 am - 5:00 pm </p>
          </div>
          <div class="connect">
             <h3>Connect with us</h3>
