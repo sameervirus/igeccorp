@@ -6578,3 +6578,7 @@ div.general-content:not(#page) .wp-block-columns ul li ul li:before {
   white-space: nowrap;
   overflow: hidden;
 }
+
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image) {
+  margin-bottom: 0;
+}

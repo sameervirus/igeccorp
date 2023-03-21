@@ -12,8 +12,8 @@
     <div class="home-hero">
         <div class="contain">
             <div class="intro">
-                <h1>Powering the transition to a carbon-free future</h1>
-                <p>Using high voltage engineering, we take projects from application to energisation, with the goal of protecting the environment</p>
+                <h1>Empowering Your Vision with Innovative Electrical Solutions: Welcome to IGEC</h1>
+                <p>IGEC’s mission is to deliver high-quality and cost-effective solutions for our clients' projects, both domestic and international.</p>
                 <a class="btn alt arrow" href="/contact/">Start your project</a>				
             </div>
         </div>
@@ -117,7 +117,7 @@
                   <p><?php echo $section_services_page->post_excerpt; ?></p>
                </div>
                <div class="button">
-                  <a href="/services/electrical-infrastructure/" class="btn arrow">View all services</a>
+                  <a href="/services/" class="btn arrow">View all services</a>
                </div>
             </div>
             <div class="services-grid">
